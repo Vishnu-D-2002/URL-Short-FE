@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import userInst from '../../services/user';
 
 function SignIn() {
 
@@ -13,6 +14,10 @@ function SignIn() {
     const handleLogin = (e) => {
         e.preventDefault();
         console.log(loginForm);
+
+        const res=userInst.signIn(loginForm);
+
+        sessionStorage.setItem('loggedInUser', JSON.stringify(res.data));
 
         setLoginForm({
             email: '',
