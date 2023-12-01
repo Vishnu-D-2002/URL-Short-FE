@@ -1,0 +1,88 @@
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import userInst from '../../services/user';
+
+function SignUp() {
+    const [registerForm, setRegisterForm] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: ''
+    });
+
+    const navigate = useNavigate();
+
+    const handleForm = (e) => {
+        e.preventDefault();
+        console.log(registerForm);
+
+        // const user = {
+        //     firstName:registerForm.firstName,
+        //     lastName:registerForm.lastName,
+        //     email:registerForm.email,
+        //     password:registerForm.password
+        // };
+
+        userInst.signUp(registerForm);
+
+        setRegisterForm({
+            firstName: '',
+            lastName: '',
+            email: '',
+            password: ''
+        });
+
+        navigate('/');
+    };
+
+    return (
+        <div>
+            <form onSubmit={handleForm}>
+                <h1>Register </h1>
+                <div>
+                    <input
+                        type='text'
+                        placeholder='Enter your First Name'
+                        value={registerForm.firstName}
+                        onChange={(e) => setRegisterForm({ ...registerForm, firstName: e.target.value })}
+                    />
+                </div>
+
+                <div>
+                    <input
+                        type='text'
+                        placeholder='Enter your Last Name'
+                        value={registerForm.lastName}
+                        onChange={(e) => setRegisterForm({ ...registerForm, lastName: e.target.value })}
+                    />
+                </div>
+
+                <div>
+                    <input
+                        type='email'
+                        placeholder='Enter your Email Id'
+                        value={registerForm.email}
+                        onChange={(e) => setRegisterForm({ ...registerForm, email: e.target.value })}
+                    />
+                </div>
+
+                <div>
+                    <input
+                        type='password'
+                        placeholder='Enter your Password'
+                        value={registerForm.password}
+                        onChange={(e) => setRegisterForm({ ...registerForm, password: e.target.value })}
+                    />
+                </div>
+
+                <div>
+                    <button type='submit'>REGISTER</button>
+                </div>
+
+                <h2>Already Registered ? <Link to='/'>LOGIN</Link></h2>
+            </form>
+        </div>
+    );
+}
+
+export default SignUp;
