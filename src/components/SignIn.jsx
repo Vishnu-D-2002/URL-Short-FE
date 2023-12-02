@@ -22,6 +22,11 @@ function SignIn() {
             });
             console.log(user);
 
+            if (!user) {
+                sessionStorage.removeItem('loggedInUser');
+                navigate('/');
+            }
+        
             navigate('/dashboard');
         
     };
