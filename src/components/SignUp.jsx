@@ -14,14 +14,6 @@ function SignUp() {
 
     const handleForm = (e) => {
         e.preventDefault();
-        // console.log(registerForm);
-
-        // const user = {
-        //     firstName:registerForm.firstName,
-        //     lastName:registerForm.lastName,
-        //     email:registerForm.email,
-        //     password:registerForm.password
-        // };
 
         userInst.signUp(registerForm);
 

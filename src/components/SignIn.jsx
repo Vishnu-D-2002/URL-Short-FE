@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import userInst from '../../services/user';
-import { useDispatch } from 'react-redux';
 
 function SignIn() {
     const [loginForm, setLoginForm] = useState({
@@ -10,33 +9,22 @@ function SignIn() {
     });
 
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     const handleLogin = async (e) => {
-        
-        e.preventDefault();
 
-    try {
-        const user = userInst.signIn(loginForm);
-        navigate('/dashboard');
+            e.preventDefault();
+                
+            const user = await userInst.signIn(loginForm);
 
-        setLoginForm({
-            email: '',
-            password: ''
-        });
+            setLoginForm({
+                email: '',
+                password: ''
+            });
+            console.log(user);
 
-        if (user) {
-            await dispatch({ type: 'SIGNIN_SUCCESS', payload: user });
-        }
-
-        navigate('/dashboard');
-
-    } catch (error) {
-                console.log('Password is wrong. Please check your password.');
-        }
+            navigate('/dashboard');
         
     };
-
 
     return (
         <div>
