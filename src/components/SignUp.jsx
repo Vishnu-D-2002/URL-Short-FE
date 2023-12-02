@@ -14,7 +14,7 @@ function SignUp() {
 
     const handleForm = (e) => {
         e.preventDefault();
-        console.log(registerForm);
+        // console.log(registerForm);
 
         // const user = {
         //     firstName:registerForm.firstName,
