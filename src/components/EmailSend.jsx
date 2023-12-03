@@ -9,10 +9,12 @@ function EmailSend() {
         try {
 
             e.preventDefault();
-            
+
             const mail = await instance.post('/reset-password', { email });
 
             console.log('Password Reset Mail send successfully', mail);
+
+            setEmail('');
 
         } catch (error) {
 

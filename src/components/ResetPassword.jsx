@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { instance } from '../../services/instance';
+import { useNavigate } from 'react-router-dom';
 
 function ResetPassword() {
 
     const [newPassword, setNewPassword] = useState('');
+
+    const navigate = useNavigate();
 
     const handleNewPassword = async (e) => {
         try {
@@ -16,6 +19,9 @@ function ResetPassword() {
             await instance.post('/new-password', { randomString, newPassword });
 
             console.log('Password changed successfull');
+
+            setNewPassword('');
+            navigate('/');
 
         } catch (error) {
             console.error('Error is Changing Password :', error);
