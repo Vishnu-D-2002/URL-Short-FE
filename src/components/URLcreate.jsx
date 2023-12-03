@@ -3,7 +3,7 @@ import NavBar from './NavBar'
 import { useNavigate } from 'react-router-dom';
 import { instance, protectInstance } from '../../services/instance';
 
-function CreateURL() {
+function URLcreate() {
 
     const [url, setUrl] = useState('');
     const [shortUrl, setShortUrl] = useState('');
@@ -91,4 +91,4 @@ function CreateURL() {
   )
 }
 
-export default CreateURL
+export default URLcreate
