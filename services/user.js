@@ -30,6 +30,7 @@ const userInst = {
                 
                 sessionStorage.setItem('loggedInUser', JSON.stringify(res.data));
 
+                return res.data;
             }
 
         }
