@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from './NavBar'
 import { useNavigate } from 'react-router-dom';
 import { instance, protectInstance } from '../../services/instance';
@@ -7,6 +7,20 @@ function CreateURL() {
 
     const [url, setUrl] = useState('');
     const [shortUrl, setShortUrl] = useState('');
+
+    const getProfile = async() => {
+        try {
+            const user = await protectInstance.get('/');
+            console.log('Authenticated Profile :', user);
+        } catch (error) {
+            console.error('Not Authenticated User :', error);
+            navigate('/');
+        }
+    }
+
+    useEffect(() => {
+        getProfile();
+    }, []);
 
     const addUrl = async (e) => {
        
@@ -24,7 +38,7 @@ function CreateURL() {
     } catch (error) {
 
         console.error('Error in creating Short URL', error);
-       
+
     }
     };
 

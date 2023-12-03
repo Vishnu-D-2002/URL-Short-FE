@@ -5,6 +5,7 @@ import SignUp from './components/SignUp'
 import Dashboard from './components/Dashboard'
 import CreateURL from './components/createURL'
 import TotalURL from './components/TotalURL'
+import ResetPassword from './components/ResetPassword'
 
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
             <Route path='/register' element={<SignUp />} />
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/createURL' element={<CreateURL />} />
-            <Route path='/totalURL' element={ <TotalURL /> } />
+            <Route path='/totalURL' element={<TotalURL />} />
+            <Route path='/resetPassword/:randomString' element={ <ResetPassword /> } />
           </Routes>
         </div>
       </Router>
