@@ -1,15 +1,32 @@
 import React, { useState } from 'react'
+import { instance } from '../../services/instance';
 
 function ResetPassword() {
 
     const [newPassword, setNewPassword] = useState('');
 
+    const handleNewPassword = async (e) => {
+        try {
+            e.preventDefault();
+            
+            const randomString = window.location.pathname.slice(-7);
+
+            console.log(randomString);
+
+            await instance.post('/new-password', { randomString, newPassword });
+
+            console.log('Password changed successfull');
+
+        } catch (error) {
+            console.error('Error is Changing Password :', error);
+        }
+    }
   return (
       <div>
       
-          <h1>Enter the New Password to reset the Password </h1>
+          <h1>Enter the New Password to reset the old Password </h1>
 
-          <form>
+          <form onSubmit={handleNewPassword}>
               <label>New Password : </label>
               <input 
                   type='password'
@@ -17,6 +34,7 @@ function ResetPassword() {
                   value={newPassword}
                   onChange={e=>setNewPassword(e.target.value)}
               />
+              <button type='submit'>Change Password</button>
           </form>
       </div>
   )

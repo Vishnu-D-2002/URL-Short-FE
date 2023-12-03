@@ -56,6 +56,7 @@ function SignIn() {
 
                 <div>
                     <button type='submit'>LOGIN</button>
+                    <Link to='/emailSend'>Reset Password</Link>
                 </div>
 
                 <h2>
