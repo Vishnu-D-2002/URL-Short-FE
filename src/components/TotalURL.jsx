@@ -46,7 +46,6 @@ function TotalURL() {
             await protectInstance.delete(urlId);
             console.log('URL Deleted successfully');
             allURLs();
-            window.location.reload()
         } catch (error) {
             console.error('Error deleting URL:', error);
         }
