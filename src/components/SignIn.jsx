@@ -27,7 +27,7 @@ function SignIn() {
                 navigate('/');
             }
         
-            navigate('/dashboard');
+            navigate('/createURL');
         
     };
 

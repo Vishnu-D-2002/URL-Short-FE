@@ -54,7 +54,8 @@ function CreateURL() {
             placeholder='Enter a long URL...'
             value={url}
             onChange={e=>setUrl(e.target.value)}
-              /><br /><br />
+              />&nbsp;&nbsp;&nbsp;
+            <button type='submit'>Convert</button><br /><br />
               {
                   shortUrl && (
                       <div>
@@ -66,8 +67,7 @@ function CreateURL() {
                       </div>
                   )
               }
-            <br /><br />
-            <button type='submit'>Convert</button>
+            <br />
 
           </form><br />
           <div>

@@ -4,7 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { protectInstance } from '../../services/instance';
 
 function TotalURL() {
-  const [URLs, setURLs] = useState([]);
+    const [URLs, setURLs] = useState([]);
+    const [msg, setMsg] = useState('');
+
   const navigate = useNavigate();
 
     const allURLs = async () => {
@@ -15,6 +17,7 @@ function TotalURL() {
 
             if (res.data && Array.isArray(res.data.URLs)) {
                 setURLs(res.data.URLs);
+                setMsg(res.data.message);
             } else {
                 console.error('Invalid response format. Expected an array.');
             }
@@ -38,18 +41,35 @@ function TotalURL() {
         console.log('Redirect successfull');
     }
 
+    const deleteURL = async (urlId) => {
+        try {
+            await protectInstance.delete(urlId);
+            console.log('URL Deleted successfully');
+            allURLs();
+            window.location.reload()
+        } catch (error) {
+            console.error('Error deleting URL:', error);
+        }
+    };
+
+    const preventDefault = (e) => {
+        e.preventDefault();
+    };
 
     return (
         <div>
-            <form>
+            <form onSubmit={preventDefault}>
                 <NavBar />
                 <h1>Total URLs Created</h1>
-                <table>
+                {
+                    msg === 'All URLs are Fetched Successfully' ? 
+                    <table>
                     <thead>
                         <tr>
                             <th>Long URL</th>
                             <th>Short URL</th>
                             <th>Created At</th>
+                            <th>Delete</th>        
                         </tr>
                     </thead>
                     <tbody>
@@ -64,10 +84,14 @@ function TotalURL() {
                                     >{`https://url-short-be-7ukh.onrender.com${url.shortURL}`}</a>
                                 </td>
                                 <td>{url.createdAt.slice(0, 10)}</td>
+                                <td><button onClick={() => deleteURL(url.shortURL)}>Delete</button></td>
+
                             </tr>
                         ))}
                     </tbody>
-                </table>
+                </table>: (<h2>There is no URLs Created by you</h2>)
+                } 
+
             </form><br /><br />
             <div>
                 <button onClick={handleLogout}>LOGOUT</button>
