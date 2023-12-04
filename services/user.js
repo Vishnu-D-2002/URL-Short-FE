@@ -10,9 +10,18 @@ const userInst = {
             const res = await instance.post('/signup', user);
 
             if (res.data) {
-              return console.log('User Registered successfully ',res.data);
-            }
+                console.log('User Registered successfully ', res.data);
             
+                const email = res.data.newUser.email;
+                
+                const activationMail = await instance.post(`/${email}`, { email });
+                if (activationMail) {
+                    return console.log('Activation Mail Sent Successfull to your Mail');
+                }
+                else {
+                    return console.log("Can't sent Activation Link");
+                }
+            }
         } catch (error) {
             console.log('Error While SigningUp',error);
         }

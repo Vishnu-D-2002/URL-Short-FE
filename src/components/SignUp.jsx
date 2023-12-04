@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import userInst from '../../services/user';
 
 function SignUp() {
@@ -10,13 +10,11 @@ function SignUp() {
         password: ''
     });
 
-    const navigate = useNavigate();
-
     const handleForm = (e) => {
         e.preventDefault();
 
         userInst.signUp(registerForm);
-
+        
         setRegisterForm({
             firstName: '',
             lastName: '',
@@ -24,7 +22,6 @@ function SignUp() {
             password: ''
         });
 
-        navigate('/');
     };
 
     return (

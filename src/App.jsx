@@ -7,6 +7,7 @@ import TotalURL from './components/TotalURL'
 import ResetPassword from './components/ResetPassword'
 import URLcreate from './components/URLcreate'
 import EmailSend from './components/EmailSend'
+import Activated from './components/Activated'
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
             <Route path='/createURL' element={<URLcreate />} />
             <Route path='/totalURL' element={<TotalURL />} />
             <Route path='/emailSend' element={ <EmailSend /> } />
-            <Route path='/resetPassword/:randomString' element={ <ResetPassword /> } />
+            <Route path='/resetPassword/:randomString' element={<ResetPassword />} />
+            <Route path='/activate/:activationToken' element={<Activated />} />
           </Routes>
         </div>
       </Router>

@@ -35,7 +35,6 @@ function SignIn() {
         <div>
             <form onSubmit={handleLogin}>
                 <h1>Login</h1>
-
                 <div>
                     <input
                         type='email'
@@ -60,7 +59,7 @@ function SignIn() {
                 </div>
 
                 <h2>
-                    Not Registered ? <Link to='/register'>REGISTER</Link>
+                    New User ? <Link to='/register'>REGISTER</Link>
                 </h2>
             </form>
         </div>
