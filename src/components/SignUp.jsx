@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import userInst from '../../services/user';
+import '../App.css';
 
 function SignUp() {
     const [registerForm, setRegisterForm] = useState({

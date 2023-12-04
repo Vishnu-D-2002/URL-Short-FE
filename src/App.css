@@ -1,0 +1,144 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+label{
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+}
+/* Form Styles */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    width: 350px;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: block;
+    margin: 15px auto;
+    font-size: medium;
+}
+
+p{
+    margin-top: 0px;
+    font-weight: bold;
+}
+/* Header Styles */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    color: #4caf50;
+    text-align: center;
+}
+
+h3 {
+    color: #ff0000;
+    text-align: center;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #4caf50;
+    color: white;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #333;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: inline-block;
+    margin-right: 20px;
+    /* Adjust the margin as needed */
+}
+
+a {
+    text-decoration: none;
+    color: rgb(35, 68, 199);
+    padding: 10px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+a:hover {
+    background-color: #c4c0c0;
+}
+
+/* Button Styles */
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 11px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    width: max-content;
+    margin-top: 10px;
+    display: block;
+    margin: 15px auto;
+    letter-spacing: 3px;
+}
+
+button:hover {
+    background-color: rgb(23, 227, 111);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+    form {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    table {
+        overflow-x: auto;
+    }
+}

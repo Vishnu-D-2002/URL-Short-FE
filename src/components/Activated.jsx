@@ -1,6 +1,7 @@
 import React from 'react'
 import { instance } from '../../services/instance';
 import { useNavigate } from 'react-router-dom';
+import '../App.css';
 
 function Activated() {
 
@@ -30,7 +31,9 @@ function Activated() {
     <div>
     
       <form onSubmit={handleActivation}>
-          <button type='submit'>Activate Account</button>
+        <h1>Please Click the Activate Account Button Below to Activate Your Inactive Account</h1>
+        <button type='submit'>Activate Account</button>
+        <h2>If you Don't want to Activate Account Please Denied this step</h2>
       </form>
 
     </div>

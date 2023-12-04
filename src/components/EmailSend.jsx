@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { instance } from '../../services/instance';
+import '../App.css';
 
 function EmailSend() {
 

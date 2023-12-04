@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import userInst from '../../services/user';
+import '../App.css';
 
 function SignIn() {
     const [loginForm, setLoginForm] = useState({
@@ -56,7 +57,7 @@ function SignIn() {
 
                 <div>
                     <button type='submit'>LOGIN</button>
-                    <Link to='/emailSend'>Reset Password</Link>
+                    <h3><Link to='/emailSend'>Reset Password</Link></h3>
                 </div>
                 {
                     <h3>{msg}</h3>

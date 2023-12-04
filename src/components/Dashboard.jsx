@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NavBar from './NavBar';
 import { useNavigate } from 'react-router-dom';
 import { protectInstance } from '../../services/instance';
+import '../App.css';
 
 function Dashboard() {
   const [totals, setTotals] = useState({ totalToday: 0, totalThisMonth: 0 });

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NavBar from './NavBar';
 import { useNavigate } from 'react-router-dom';
 import { protectInstance } from '../../services/instance';
+import '../App.css';
 
 function TotalURL() {
     const [URLs, setURLs] = useState([]);

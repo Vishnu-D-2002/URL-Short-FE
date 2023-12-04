@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import NavBar from './NavBar'
 import { useNavigate } from 'react-router-dom';
 import { instance, protectInstance } from '../../services/instance';
+import '../App.css';
 
 function URLcreate() {
 
@@ -68,12 +69,13 @@ function URLcreate() {
             placeholder='Enter a long URL...'
             value={url}
             onChange={e=>setUrl(e.target.value)}
-              />&nbsp;&nbsp;&nbsp;
+              />
             <button type='submit'>Convert</button><br /><br />
+              <p>
               {
                   shortUrl && (
                       <div>
-                          SHORT URL : <a
+                        <span style={{}}> SHORT URL : </span> <a
                               href={`https://url-short-be-7ukh.onrender.com${shortUrl}`}
                               target='_blank'
                               onClick={handleRedirect}
@@ -81,9 +83,8 @@ function URLcreate() {
                       </div>
                   )
               }
-            <br />
-
-          </form><br />
+              </p>
+          </form>
           <div>
                 <button onClick={handleLogout}>LOGOUT</button>
           </div>
