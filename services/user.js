@@ -3,7 +3,7 @@ import { instance } from "./instance";
 
 const userInst = {
     
-    signUp: async (user) => {
+    signUp: async (user,setMsg) => {
         try {
             console.log('Registering the User...');
 
@@ -16,18 +16,18 @@ const userInst = {
                 
                 const activationMail = await instance.post(`/${email}`, { email });
                 if (activationMail) {
-                    return console.log('Activation Mail Sent Successfull to your Mail');
+                    return setMsg('Activation Mail Sent Successfull to your Mail');
                 }
                 else {
-                    return console.log("Can't sent Activation Link");
+                    return setMsg("Can't sent Activation Link");
                 }
             }
         } catch (error) {
-            console.log('Error While SigningUp',error);
+            return setMsg('Error While SigningUp',error);
         }
     },
 
-    signIn: async (user) => {
+    signIn: async (user,setMsg) => {
         try {
             console.log('Signing in the User...');
 
@@ -49,11 +49,11 @@ const userInst = {
             if (error.response) {
                 const status = error.response.status;
                 if (status === 404) {
-                   return console.log('Password is wrong. Please check your password.');
+                   return setMsg('Password is wrong. Please check your password.');
                 } else if (status === 400) {
-                  return  console.log('Bad Request: ', error.response.data.error);
+                  return  setMsg('Bad Request: ', error.response.data.error);
                 } else {
-                  return  console.log('Error While SigningUp. Status:', status);
+                  return  setMsg('Error While SigningUp. Status:', status);
                 }
             } 
         }

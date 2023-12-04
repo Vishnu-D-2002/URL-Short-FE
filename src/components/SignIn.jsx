@@ -8,27 +8,28 @@ function SignIn() {
         password: ''
     });
 
+    const [msg, setMsg] = useState('');
+
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
+        e.preventDefault();
 
-            e.preventDefault();
-                
-            const user = await userInst.signIn(loginForm);
+        const user = await userInst.signIn(loginForm, setMsg);
 
-            setLoginForm({
-                email: '',
-                password: ''
-            });
-            console.log(user);
+        setLoginForm({
+            email: '',
+            password: ''
+        });
 
-            if (!user) {
-                sessionStorage.removeItem('loggedInUser');
-                navigate('/');
-            }
+        if (!user) {
+            sessionStorage.removeItem('loggedInUser');
+        
+            setMsg('Entered a Wrong Email or Password');
+        } else {
         
             navigate('/createURL');
-        
+        }
     };
 
     return (
@@ -57,6 +58,9 @@ function SignIn() {
                     <button type='submit'>LOGIN</button>
                     <Link to='/emailSend'>Reset Password</Link>
                 </div>
+                {
+                    <h3>{msg}</h3>
+                }
 
                 <h2>
                     New User ? <Link to='/register'>REGISTER</Link>

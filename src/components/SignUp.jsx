@@ -10,10 +10,12 @@ function SignUp() {
         password: ''
     });
 
+    const [msg, setMsg] = useState('');
+
     const handleForm = (e) => {
         e.preventDefault();
 
-        userInst.signUp(registerForm);
+        userInst.signUp(registerForm,setMsg);
         
         setRegisterForm({
             firstName: '',
@@ -67,6 +69,9 @@ function SignUp() {
                 <div>
                     <button type='submit'>REGISTER</button>
                 </div>
+                {
+                    <h3>{ msg }</h3>
+                }
 
                 <h2>Already Registered ? <Link to='/'>LOGIN</Link></h2>
             </form>

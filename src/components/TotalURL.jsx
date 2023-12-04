@@ -22,7 +22,13 @@ function TotalURL() {
                 console.error('Invalid response format. Expected an array.');
             }
         } catch (error) {
-            console.error('Error fetching URLs:', error);
+            
+            console.error('Error fetching URLs:', error.message);
+            if (error.message === ' Request failed with status code 404') {
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            }
         }
     };
 
@@ -61,8 +67,8 @@ function TotalURL() {
                 <NavBar />
                 <h1>Total URLs Created</h1>
                 {
-                    msg === 'All URLs are Fetched Successfully' ? 
-                    <table>
+                    msg === 'All URLs fetched successfully' ? 
+                    (<table>
                     <thead>
                         <tr>
                             <th>Long URL</th>
@@ -88,7 +94,7 @@ function TotalURL() {
                             </tr>
                         ))}
                     </tbody>
-                </table>: (<h2>There is no URLs Created by you</h2>)
+                </table>): (<h2>There is no URLs Created by you</h2>)
                 } 
 
             </form><br /><br />
