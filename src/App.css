@@ -25,7 +25,7 @@ form {
 }
 
 input {
-    width: 350px;
+    width: 55vw;
     padding: 10px;
     margin: 8px 0;
     box-sizing: border-box;
@@ -131,14 +131,25 @@ button:hover {
     background-color: rgb(23, 227, 111);
 }
 
-/* Responsive Styles */
+form {
+    width: 80%;
+    margin: 4rem auto;
+}
+
+.logout-container {
+    position: fixed;
+    top: 0.6rem;
+    right: 2rem;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
 @media screen and (max-width: 600px) {
-    form {
-        width: 80%;
-        margin: 0 auto;
-    }
+
 
     table {
-        overflow-x: auto;
+        width: 100%;
     }
 }

@@ -43,6 +43,7 @@ function SignIn() {
                         placeholder='Enter your Email'
                         value={loginForm.email}
                         onChange={(e) => setLoginForm({ ...loginForm, email: e.target.value })}
+                        required
                     />
                 </div>
 
@@ -52,16 +53,16 @@ function SignIn() {
                         placeholder='Enter your Password'
                         value={loginForm.password}
                         onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
+                        required
                     />
-                </div>
-
-                <div>
-                    <button type='submit'>LOGIN</button>
-                    <h3><Link to='/emailSend'>Reset Password</Link></h3>
                 </div>
                 {
                     <h3>{msg}</h3>
                 }
+                <div>
+                    <button type='submit'>LOGIN</button>
+                    <h3><Link to='/emailSend'>Reset Password</Link></h3>
+                </div>
 
                 <h2>
                     New User ? <Link to='/register'>REGISTER</Link>

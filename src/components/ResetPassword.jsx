@@ -39,7 +39,8 @@ function ResetPassword() {
                   type='password'
                   placeholder='New Password'
                   value={newPassword}
-                  onChange={e=>setNewPassword(e.target.value)}
+                  onChange={e => setNewPassword(e.target.value)}
+                  required
               />
               <button type='submit'>Change Password</button>
           </form>

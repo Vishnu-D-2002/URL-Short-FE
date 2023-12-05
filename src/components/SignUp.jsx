@@ -37,6 +37,7 @@ function SignUp() {
                         placeholder='Enter your First Name'
                         value={registerForm.firstName}
                         onChange={(e) => setRegisterForm({ ...registerForm, firstName: e.target.value })}
+                        required
                     />
                 </div>
 
@@ -46,6 +47,7 @@ function SignUp() {
                         placeholder='Enter your Last Name'
                         value={registerForm.lastName}
                         onChange={(e) => setRegisterForm({ ...registerForm, lastName: e.target.value })}
+                        required
                     />
                 </div>
 
@@ -55,6 +57,7 @@ function SignUp() {
                         placeholder='Enter your Email Id'
                         value={registerForm.email}
                         onChange={(e) => setRegisterForm({ ...registerForm, email: e.target.value })}
+                        required
                     />
                 </div>
 
@@ -64,6 +67,7 @@ function SignUp() {
                         placeholder='Enter your Password'
                         value={registerForm.password}
                         onChange={(e) => setRegisterForm({ ...registerForm, password: e.target.value })}
+                        required
                     />
                 </div>
 

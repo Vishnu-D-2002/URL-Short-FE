@@ -64,43 +64,47 @@ function TotalURL() {
 
     return (
         <div>
+
             <form onSubmit={preventDefault}>
                 <NavBar />
+                
                 <h1>Total URLs Created</h1>
                 {
-                    msg === 'All URLs fetched successfully' ? 
-                    (<table>
-                    <thead>
-                        <tr>
-                            <th>Long URL</th>
-                            <th>Short URL</th>
-                            <th>Created At</th>
-                            <th>Delete</th>        
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {URLs.map((url) => (
-                            <tr key={url._id}>
-                                <td>{url.longURL}</td>
-                                <td>
-                                    <a
-                                    href={`https://url-short-be-7ukh.onrender.com${url.shortURL}`}
-                                    target='_blank'
-                                    onClick={handleRedirect}
-                                    >{`https://url-short-be-7ukh.onrender.com${url.shortURL}`}</a>
-                                </td>
-                                <td>{url.createdAt.slice(0, 10)}</td>
-                                <td><button onClick={() => deleteURL(url.shortURL)}>Delete</button></td>
-
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>): (<h2>There is no URLs Created by you</h2>)
-                } 
-
+                    msg === 'All URLs fetched successfully' ?
+                        (
+                            <div className="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Long URL</th>
+                                            <th>Short URL</th>
+                                            <th>Created At</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {URLs.map((url) => (
+                                            <tr key={url._id}>
+                                                <td>{url.longURL}</td>
+                                                <td>
+                                                    <a
+                                                        href={`https://url-short-be-7ukh.onrender.com${url.shortURL}`}
+                                                        target='_blank'
+                                                        onClick={handleRedirect}
+                                                    >{`https://url-short-be-7ukh.onrender.com${url.shortURL}`}</a>
+                                                </td>
+                                                <td>{url.createdAt.slice(0, 10)}</td>
+                                                <td><button onClick={() => deleteURL(url.shortURL)}>Delete</button></td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        ) : (<h2>There are no URLs created by you</h2>)
+                }
             </form><br /><br />
             <div>
-                <button onClick={handleLogout}>LOGOUT</button>
+                <button className="logout-container" onClick={handleLogout}>LOGOUT</button>
             </div>
         </div>
     );

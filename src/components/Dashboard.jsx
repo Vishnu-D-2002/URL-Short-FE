@@ -46,7 +46,7 @@ function Dashboard() {
       <br />
       <br />
       <div>
-        <button onClick={handleLogout}>LOGOUT</button>
+        <button class="logout-container" onClick={handleLogout}>LOGOUT</button>
       </div>
     </div>
   );

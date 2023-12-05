@@ -68,9 +68,10 @@ function URLcreate() {
             type='text'
             placeholder='Enter a long URL...'
             value={url}
-            onChange={e=>setUrl(e.target.value)}
+            onChange={e => setUrl(e.target.value)}
+            required
               />
-            <button type='submit'>Convert</button><br /><br />
+            <button type='submit'>Convert</button><br />
               <p>
               {
                   shortUrl && (
@@ -86,7 +87,7 @@ function URLcreate() {
               </p>
           </form>
           <div>
-                <button onClick={handleLogout}>LOGOUT</button>
+                <button  class="logout-container" onClick={handleLogout}>LOGOUT</button>
           </div>
       </div>
   )

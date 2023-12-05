@@ -33,7 +33,8 @@ function EmailSend() {
                   type='email'
                   placeholder='Enter your Email'
                   value={email}
-                  onChange={e=>setEmail(e.target.value)}
+                  onChange={e => setEmail(e.target.value)}
+                  required
               />
               <button type='submit'>SUBMIT</button>
             </form>
