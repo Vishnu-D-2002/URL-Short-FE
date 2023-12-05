@@ -134,6 +134,7 @@ button:hover {
 form {
     width: 80%;
     margin: 4rem auto;
+    box-shadow: 2px 2px 10px 0px ;
 }
 
 .logout-container {
